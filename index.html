@@ -250,12 +250,10 @@
   .author p { color: var(--fg-soft); margin-bottom: 14px; }
   .author-photo {
     width: 100%; aspect-ratio: 1;
-    background:
-      radial-gradient(circle at 50% 30%, var(--purple), var(--bg-3) 70%);
     border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'JetBrains Mono', monospace; font-size: 64px; color: rgba(255,255,255,0.85);
+    object-fit: cover;
     border: 1px solid var(--line);
+    display: block;
   }
 
   /* FAQ */
@@ -516,7 +514,7 @@
 <section>
   <div class="container">
     <div class="author">
-      <div class="author-photo">BS</div>
+      <img src="public/bruno-foto.jpg" alt="Bruno Santos — autor do livro" class="author-photo" loading="lazy" width="600" height="600">
       <div>
         <h3>Sobre o autor</h3>
         <p><strong>Bruno Santos</strong> é engenheiro de software brasileiro especializado em arquitetura de sistemas e construção de agentes IA em produção.</p>
