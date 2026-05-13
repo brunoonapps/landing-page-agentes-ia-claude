@@ -23,19 +23,14 @@ Esta pasta contém uma landing page **standalone** (HTML único, sem build, sem 
 
 ## O que ajustar antes de divulgar
 
-Abra `index.html` e procure:
+A URL do checkout Hotmart já vem **hardcoded** nos botões de CTA (`<a href="https://pay.hotmart.com/...">`). Não há script JS de injeção.
 
-```js
-const HOTMART_CHECKOUT_URL = "#";
-```
+Se precisar trocar a URL (raro — apenas se a Hotmart emitir nova URL após mudança no produto):
 
-Substitua `"#"` pela URL real de checkout que a Hotmart te dá após publicar o produto. Exemplo:
-
-```js
-const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/B12345678X?checkoutMode=10";
-```
-
-Salve. Re-deploy. Os botões de compra agora levam ao checkout direto.
+1. Abra `index.html`
+2. Busque por `pay.hotmart.com`
+3. Substitua as 2 ocorrências (CTA principal do pricing + CTA final pós-FAQ)
+4. Salve. Re-deploy.
 
 ## Métricas
 

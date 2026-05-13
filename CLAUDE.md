@@ -11,7 +11,7 @@
 - **Plataforma de venda:** Hotmart (produto ID `7661508`)
 - **Tíquete:** R$ 397 (oferta principal "Lançamento") · R$ 277,90 com cupom `EARLYBIRD30` (primeiros 7 dias)
 - **Público-alvo:** devs intermediário/avançado em TS/Python/Go/Rust, founders técnicos, criadores de conteúdo dev
-- **Bundle entregue:** ebook 237 págs + 4 PDFs de bônus + comunidade exclusiva + **Lab Docker production-grade (Bônus 5)** validado em runtime real contra a API Anthropic
+- **Bundle entregue:** ebook 228 págs + 4 bônus inclusos (Repositório com 7 projetos, 10 Skills profissionais para Claude Code, Workbook + Production Checklist, e **Lab Docker production-grade** validado em runtime real contra a API Anthropic)
 - **Posicionamento:** o livro técnico que começa onde os "tutoriais de prompt" terminam — todos os 7 projetos validados em runtime real, não só "static analysis"
 
 ### Histórico de mudanças relevantes (changelog do briefing)
@@ -57,19 +57,24 @@ Não criar pastas adicionais sem motivo forte. Se precisar de assets binários (
 
 ## 4. Variáveis críticas
 
-Procure no fim do `index.html`:
+A URL de checkout da Hotmart está **hardcoded** diretamente nos dois CTAs principais (`<a href="...">`) — não há mais script JS de injeção. Procure no `index.html`:
 
-```js
-const HOTMART_CHECKOUT_URL = "#";
+```html
+<a href="https://pay.hotmart.com/L105647550X" target="_blank" rel="noopener noreferrer" class="btn-primary" id="hotmart-cta">
 ```
 
-Quando o KYC do produto for aprovado pela Hotmart, essa string deve ser substituída pela URL real de checkout (formato `https://pay.hotmart.com/L105647550X`). Bruno vai informar quando estiver pronta.
+Existem 2 ocorrências:
+- CTA principal do card de preço (perto da seção `<section class="pricing">`)
+- CTA final pós-FAQ (perto da seção `<section class="final-cta">`)
+
+Se a URL do checkout mudar (raríssimo), substitua nas 2 ocorrências.
 
 Outras strings que podem mudar:
 
-- Preço (atualmente R$ 397 / de R$ 497) — só alterar se Bruno confirmar nova precificação
-- Cupom `EARLYBIRD30` — mencionado como "30% off por 7 dias"; se cupom mudar, atualizar copy
-- Link do LinkedIn `linkedin.com/in/brunoonapps`
+- **Preço:** atualmente R$ 397 / de R$ 497,00. Só alterar se Bruno confirmar nova precificação.
+- **Cupom `EARLYBIRD30`:** atualmente exibido no pricing card como "R$ 277,90 (30% off, primeiros 7 dias)". Se cupom mudar, atualizar copy do card.
+- **Link do LinkedIn:** `linkedin.com/in/brunoonapps`
+- **Email de suporte:** `suporte@brunoonapps.com`
 
 ## 5. Princípios de copy
 
@@ -107,7 +112,7 @@ Quando Bruno autorizar, adicionar:
 Variantes de teste interessantes (depois de baseline estabelecido):
 - Atual: "Construa agentes IA profissionais com Claude — do zero à produção."
 - Variante B: "O guia técnico que falta entre 'tutorial de prompt' e 'agente em produção'."
-- Variante C: "237 páginas de Claude Agent SDK + MCP — em PT-BR, sem fluff."
+- Variante C: "228 páginas de Claude Agent SDK + MCP — em PT-BR, sem fluff."
 
 Implementar via cookie randomizado + log de qual variante converteu. **Não usar** ferramentas SaaS pesadas (Optimizely etc.) — solução em 30 linhas de JS basta.
 
